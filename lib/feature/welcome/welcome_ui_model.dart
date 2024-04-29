@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'welcome_ui_state.freezed.dart';
+part 'welcome_ui_model.freezed.dart';
 
 @freezed
 class WelcomeUiState with _$WelcomeUiState {

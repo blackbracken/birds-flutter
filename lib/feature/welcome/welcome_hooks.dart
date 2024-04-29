@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import 'welcome_ui_state.dart';
+import 'welcome_ui_model.dart';
 
 WelcomeUiModel useWelcomeUiModel() {
   final userName = useState("");
