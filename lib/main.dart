@@ -1,9 +1,18 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_birds/feature/login/login_route.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'designsystem/birds_app_bar_widget.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -50,6 +59,13 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (ctx) => LoginRoute()));
+                },
+                child: const Text("Go to login page")),
+            const SizedBox(height: 16.0),
             const Text(
               'You have pushed the button this many times:',
             ),
