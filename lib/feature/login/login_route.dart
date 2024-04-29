@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_birds/designsystem/birds_outlined_button_widget.dart';
+import 'package:flutter_birds/components/birds_outlined_button_widget.dart';
 import 'package:flutter_birds/feature/login/login_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

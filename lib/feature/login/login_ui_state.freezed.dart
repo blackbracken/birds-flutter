@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'login_ui_model.dart';
+part of 'login_ui_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,28 +15,28 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$LoginUiModel {
+mixin _$LoginUiState {
   String get userName => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $LoginUiModelCopyWith<LoginUiModel> get copyWith =>
+  $LoginUiStateCopyWith<LoginUiState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LoginUiModelCopyWith<$Res> {
-  factory $LoginUiModelCopyWith(
-          LoginUiModel value, $Res Function(LoginUiModel) then) =
-      _$LoginUiModelCopyWithImpl<$Res, LoginUiModel>;
+abstract class $LoginUiStateCopyWith<$Res> {
+  factory $LoginUiStateCopyWith(
+          LoginUiState value, $Res Function(LoginUiState) then) =
+      _$LoginUiStateCopyWithImpl<$Res, LoginUiState>;
   @useResult
   $Res call({String userName, String password});
 }
 
 /// @nodoc
-class _$LoginUiModelCopyWithImpl<$Res, $Val extends LoginUiModel>
-    implements $LoginUiModelCopyWith<$Res> {
-  _$LoginUiModelCopyWithImpl(this._value, this._then);
+class _$LoginUiStateCopyWithImpl<$Res, $Val extends LoginUiState>
+    implements $LoginUiStateCopyWith<$Res> {
+  _$LoginUiStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -63,22 +63,22 @@ class _$LoginUiModelCopyWithImpl<$Res, $Val extends LoginUiModel>
 }
 
 /// @nodoc
-abstract class _$$LoginUiModelImplCopyWith<$Res>
-    implements $LoginUiModelCopyWith<$Res> {
-  factory _$$LoginUiModelImplCopyWith(
-          _$LoginUiModelImpl value, $Res Function(_$LoginUiModelImpl) then) =
-      __$$LoginUiModelImplCopyWithImpl<$Res>;
+abstract class _$$LoginUiStateImplCopyWith<$Res>
+    implements $LoginUiStateCopyWith<$Res> {
+  factory _$$LoginUiStateImplCopyWith(
+          _$LoginUiStateImpl value, $Res Function(_$LoginUiStateImpl) then) =
+      __$$LoginUiStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String userName, String password});
 }
 
 /// @nodoc
-class __$$LoginUiModelImplCopyWithImpl<$Res>
-    extends _$LoginUiModelCopyWithImpl<$Res, _$LoginUiModelImpl>
-    implements _$$LoginUiModelImplCopyWith<$Res> {
-  __$$LoginUiModelImplCopyWithImpl(
-      _$LoginUiModelImpl _value, $Res Function(_$LoginUiModelImpl) _then)
+class __$$LoginUiStateImplCopyWithImpl<$Res>
+    extends _$LoginUiStateCopyWithImpl<$Res, _$LoginUiStateImpl>
+    implements _$$LoginUiStateImplCopyWith<$Res> {
+  __$$LoginUiStateImplCopyWithImpl(
+      _$LoginUiStateImpl _value, $Res Function(_$LoginUiStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$LoginUiModelImplCopyWithImpl<$Res>
     Object? userName = null,
     Object? password = null,
   }) {
-    return _then(_$LoginUiModelImpl(
+    return _then(_$LoginUiStateImpl(
       userName: null == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
@@ -102,8 +102,8 @@ class __$$LoginUiModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoginUiModelImpl implements _LoginUiModel {
-  const _$LoginUiModelImpl({required this.userName, required this.password});
+class _$LoginUiStateImpl implements _LoginUiState {
+  const _$LoginUiStateImpl({required this.userName, required this.password});
 
   @override
   final String userName;
@@ -112,14 +112,14 @@ class _$LoginUiModelImpl implements _LoginUiModel {
 
   @override
   String toString() {
-    return 'LoginUiModel(userName: $userName, password: $password)';
+    return 'LoginUiState(userName: $userName, password: $password)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginUiModelImpl &&
+            other is _$LoginUiStateImpl &&
             (identical(other.userName, userName) ||
                 other.userName == userName) &&
             (identical(other.password, password) ||
@@ -132,14 +132,14 @@ class _$LoginUiModelImpl implements _LoginUiModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginUiModelImplCopyWith<_$LoginUiModelImpl> get copyWith =>
-      __$$LoginUiModelImplCopyWithImpl<_$LoginUiModelImpl>(this, _$identity);
+  _$$LoginUiStateImplCopyWith<_$LoginUiStateImpl> get copyWith =>
+      __$$LoginUiStateImplCopyWithImpl<_$LoginUiStateImpl>(this, _$identity);
 }
 
-abstract class _LoginUiModel implements LoginUiModel {
-  const factory _LoginUiModel(
+abstract class _LoginUiState implements LoginUiState {
+  const factory _LoginUiState(
       {required final String userName,
-      required final String password}) = _$LoginUiModelImpl;
+      required final String password}) = _$LoginUiStateImpl;
 
   @override
   String get userName;
@@ -147,6 +147,6 @@ abstract class _LoginUiModel implements LoginUiModel {
   String get password;
   @override
   @JsonKey(ignore: true)
-  _$$LoginUiModelImplCopyWith<_$LoginUiModelImpl> get copyWith =>
+  _$$LoginUiStateImplCopyWith<_$LoginUiStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
