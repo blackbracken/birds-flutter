@@ -10,9 +10,19 @@ class BirdsAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
+
     return AppBar(
-      backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      title: Text(title),
+      backgroundColor: colorScheme.primary,
+      iconTheme: IconThemeData(
+        color: colorScheme.onPrimary,
+      ),
+      title: Text(
+        title,
+        style: TextStyle(
+          color: colorScheme.onPrimary,
+        ),
+      ),
     );
   }
 
