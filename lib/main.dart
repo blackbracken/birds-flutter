@@ -5,7 +5,7 @@ import 'package:flutter_birds/birds_theme.dart';
 import 'package:flutter_birds/feature/login/login_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'designsystem/birds_app_bar_widget.dart';
+import 'components/birds_app_bar_widget.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
