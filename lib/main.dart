@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_birds/birds_theme.dart';
 import 'package:flutter_birds/feature/login/login_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -20,12 +21,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextTheme textTheme = TextTheme();
+
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: BirdsTheme(textTheme).light(),
+      darkTheme: BirdsTheme(textTheme).dark(),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
