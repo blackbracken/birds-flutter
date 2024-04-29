@@ -15,33 +15,35 @@ class WelcomeScreen extends HookConsumerWidget {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.only(right: 32, left: 32),
-        child: Column(
-          children: [
-            const SizedBox(height: 72),
-            const Text(
-              "BIRDS",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 36,
+        child: SafeArea(
+          child: Column(
+            children: [
+              const SizedBox(height: 16),
+              const Text(
+                "BIRDS",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 36,
+                ),
               ),
-            ),
-            const SizedBox(height: 32),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(32),
-              child: Assets.images.welcomeEyeCatching.image(),
-            ),
-            Spacer(),
-            SizedBox(
-                width: double.infinity,
-                child: BirdsRoundedButton(
-                    "新規登録", BirdsRoundedButtonColor.primary, () => null)),
-            const SizedBox(height: 24),
-            SizedBox(
-                width: double.infinity,
-                child: BirdsRoundedButton(
-                    "ログイン", BirdsRoundedButtonColor.secondary, () => null)),
-            const SizedBox(height: 56),
-          ],
+              const SizedBox(height: 32),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(32),
+                child: Assets.images.welcomeEyeCatching.image(),
+              ),
+              Spacer(),
+              SizedBox(
+                  width: double.infinity,
+                  child: BirdsRoundedButton(
+                      "新規登録", BirdsRoundedButtonColor.primary, () => null)),
+              const SizedBox(height: 24),
+              SizedBox(
+                  width: double.infinity,
+                  child: BirdsRoundedButton(
+                      "ログイン", BirdsRoundedButtonColor.secondary, () => null)),
+              const SizedBox(height: 56),
+            ],
+          ),
         ),
       ),
     );
