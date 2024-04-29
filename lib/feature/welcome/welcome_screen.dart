@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_birds/components/birds_outlined_button_widget.dart';
 import 'package:flutter_birds/feature/welcome/welcome_hooks.dart';
+import 'package:flutter_gen/gen_l10n/app_l10n.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import "../../gen/assets.gen.dart";
@@ -19,8 +20,8 @@ class WelcomeScreen extends HookConsumerWidget {
           child: Column(
             children: [
               const SizedBox(height: 16),
-              const Text(
-                "BIRDS",
+              Text(
+                L10n.of(context)!.app_name_upper_case,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 36,
@@ -35,12 +36,16 @@ class WelcomeScreen extends HookConsumerWidget {
               SizedBox(
                   width: double.infinity,
                   child: BirdsRoundedButton(
-                      "新規登録", BirdsRoundedButtonColor.primary, () => null)),
+                      L10n.of(context)!.welcome_register_button_label,
+                      BirdsRoundedButtonColor.primary,
+                      () => null)),
               const SizedBox(height: 24),
               SizedBox(
                   width: double.infinity,
                   child: BirdsRoundedButton(
-                      "ログイン", BirdsRoundedButtonColor.secondary, () => null)),
+                      L10n.of(context)!.welcome_log_in_button_label,
+                      BirdsRoundedButtonColor.secondary,
+                      () => null)),
               const SizedBox(height: 56),
             ],
           ),

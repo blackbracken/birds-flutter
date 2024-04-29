@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_birds/birds_theme.dart';
 import 'package:flutter_birds/router.dart';
+import 'package:flutter_gen/gen_l10n/app_l10n.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Future<void> main() async {
@@ -25,7 +26,8 @@ class BirdsApp extends StatelessWidget {
       routerDelegate: router.routerDelegate,
       routeInformationParser: router.routeInformationParser,
       routeInformationProvider: router.routeInformationProvider,
-      title: 'Flutter Demo',
+      localizationsDelegates: L10n.localizationsDelegates,
+      supportedLocales: L10n.supportedLocales,
       theme: BirdsTheme(textTheme).light(),
       darkTheme: BirdsTheme(textTheme).dark(),
     );
