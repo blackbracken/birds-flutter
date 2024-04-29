@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_birds/designsystem/birds_outlined_button_widget.dart';
 import 'package:flutter_birds/feature/login/login_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../designsystem/birds_app_bar_widget.dart';
+import "../../gen/assets.gen.dart";
 
 class LoginRoute extends HookConsumerWidget {
   const LoginRoute({super.key});
@@ -12,19 +13,36 @@ class LoginRoute extends HookConsumerWidget {
     final uiModel = useLoginUiModel();
 
     return Scaffold(
-      appBar: BirdsAppBar(title: "ログイン"),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextField(
-            obscureText: true,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'UserName',
+      body: Padding(
+        padding: EdgeInsets.only(right: 32, left: 32),
+        child: Column(
+          children: [
+            const SizedBox(height: 72),
+            const Text(
+              "BIRDS",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 36,
+              ),
             ),
-            onChanged: uiModel.changeUserName,
-          )
-        ],
+            const SizedBox(height: 32),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(32),
+              child: Assets.images.welcomeEyeCatching.image(),
+            ),
+            Spacer(),
+            SizedBox(
+                width: double.infinity,
+                child: BirdsRoundedButton(
+                    "新規登録", BirdsRoundedButtonColor.primary, () => null)),
+            const SizedBox(height: 24),
+            SizedBox(
+                width: double.infinity,
+                child: BirdsRoundedButton(
+                    "ログイン", BirdsRoundedButtonColor.secondary, () => null)),
+            const SizedBox(height: 56),
+          ],
+        ),
       ),
     );
   }
