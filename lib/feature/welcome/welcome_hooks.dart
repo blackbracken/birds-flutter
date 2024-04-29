@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import 'login_ui_state.dart';
+import 'welcome_ui_state.dart';
 
-LoginUiModel useLoginUiModel() {
+WelcomeUiModel useWelcomeUiModel() {
   final userName = useState("");
   final password = useState("");
 
@@ -20,19 +20,19 @@ LoginUiModel useLoginUiModel() {
     return null;
   }, [userName.value, password.value]);
 
-  return LoginUiModel(
-      state: LoginUiState(userName: userName.value, password: password.value),
+  return WelcomeUiModel(
+      state: WelcomeUiState(userName: userName.value, password: password.value),
       changeUserName: changeUserName,
       changePassword: changePassword);
 }
 
-class LoginUiModel {
-  LoginUiModel(
+class WelcomeUiModel {
+  WelcomeUiModel(
       {required this.state,
       required this.changeUserName,
       required this.changePassword});
 
-  final LoginUiState state;
+  final WelcomeUiState state;
   final void Function(String) changeUserName;
   final void Function(String) changePassword;
 }

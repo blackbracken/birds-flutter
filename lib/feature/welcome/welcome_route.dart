@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_birds/components/birds_outlined_button_widget.dart';
-import 'package:flutter_birds/feature/login/login_hooks.dart';
+import 'package:flutter_birds/feature/welcome/welcome_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import "../../gen/assets.gen.dart";
 
-class LoginRoute extends HookConsumerWidget {
-  const LoginRoute({super.key});
+class WelcomeRoute extends HookConsumerWidget {
+  const WelcomeRoute({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final uiModel = useLoginUiModel();
+    final uiModel = useWelcomeUiModel();
 
     return Scaffold(
       body: Padding(
