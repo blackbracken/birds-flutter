@@ -5,8 +5,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import "../../gen/assets.gen.dart";
 
-class WelcomeRoute extends HookConsumerWidget {
-  const WelcomeRoute({super.key});
+class WelcomeScreen extends HookConsumerWidget {
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
