@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_birds/router.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'welcome_ui_model.dart';
 
-WelcomeUiModel useWelcomeUiModel() {
+WelcomeUiModel useWelcomeUiModel(WidgetRef ref) {
+  final router = ref.watch(routerProvider);
+
   final userName = useState("");
   final password = useState("");
 

@@ -15,11 +15,13 @@ Future<void> main() async {
   runApp(const ProviderScope(child: BirdsApp()));
 }
 
-class BirdsApp extends StatelessWidget {
+class BirdsApp extends ConsumerWidget {
   const BirdsApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final router = ref.watch(routerProvider);
+
     final TextTheme textTheme = TextTheme();
 
     return MaterialApp.router(

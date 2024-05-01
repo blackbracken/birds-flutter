@@ -11,7 +11,7 @@ class WelcomeScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final uiModel = useWelcomeUiModel();
+    final uiModel = useWelcomeUiModel(ref);
 
     return Scaffold(
       body: Padding(
