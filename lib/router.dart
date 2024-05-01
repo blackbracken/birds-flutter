@@ -1,5 +1,5 @@
-import 'package:flutter_birds/feature/register/register_screen.dart';
-import 'package:flutter_birds/feature/welcome/welcome_screen.dart';
+import 'package:flutter_birds/features/register/register_screen.dart';
+import 'package:flutter_birds/features/welcome/welcome_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
