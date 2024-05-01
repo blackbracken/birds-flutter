@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 enum BirdsRoundedButtonColor {
   primary,
@@ -27,7 +28,10 @@ class BirdsRoundedButton extends StatelessWidget {
             foregroundColor: Colors.white,
             elevation: 0,
           ),
-          onPressed: onPressed,
+          onPressed: () {
+            HapticFeedback.mediumImpact();
+            onPressed?.call();
+          },
           child: Text(text),
         ));
   }
