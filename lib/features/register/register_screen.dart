@@ -9,7 +9,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 class RegisterScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final uiModel = useRegisterUiModel();
+    final uiModel = useRegisterUiModel(ref);
 
     return Scaffold(
         appBar: BirdsAppBar(
@@ -40,11 +40,13 @@ class RegisterScreen extends HookConsumerWidget {
               textInputAction: TextInputAction.next,
               hintText: L10n.of(context)!.register_password_hint,
               isPasswordField: true,
+              onChanged: uiModel.onChangedPassword,
             ),
             const SizedBox(height: 24),
             BirdsTextField(
               textInputAction: TextInputAction.done,
               hintText: L10n.of(context)!.register_user_name_hint,
+              onChanged: uiModel.onChangedUserName,
             ),
             Spacer(),
             Align(
@@ -54,7 +56,7 @@ class RegisterScreen extends HookConsumerWidget {
                     child: BirdsRoundedButton(
                       L10n.of(context)!.next_label,
                       BirdsRoundedButtonColor.primary,
-                      () => null,
+                      uiModel.onClickedSignUp,
                     ))),
             const SizedBox(height: 40),
           ]),

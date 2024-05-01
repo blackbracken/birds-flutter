@@ -4,18 +4,18 @@ import 'package:flutter_birds/exceptions/CreateUserException.dart';
 import '../../util/functional/Result.dart';
 
 class UserRepository {
-  UserRepository(this.firebaseAuth);
+  UserRepository(this._firebaseAuth);
 
-  final FirebaseAuth firebaseAuth;
+  final FirebaseAuth _firebaseAuth;
 
   Future<ResultStrictly<void, CreateUserException>> createUser(
       String email, String password, String userName) async {
     try {
-      await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
+      await _firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: password);
 
       try {
-        await FirebaseAuth.instance.currentUser?.updateDisplayName(userName);
+        await _firebaseAuth.currentUser?.updateDisplayName(userName);
       } catch (_) {
         // ユーザー名の更新は失敗してもignore
       }

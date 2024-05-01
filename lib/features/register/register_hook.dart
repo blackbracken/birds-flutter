@@ -1,14 +1,18 @@
+import 'package:flutter_birds/providers/RepositoryProvider.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // RFCに未準拠だが簡易チェックなので許容
 const String _emailValidationRegex =
     r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
 
-RegisterUiModel useRegisterUiModel() {
+RegisterUiModel useRegisterUiModel(WidgetRef ref) {
   final email = useState('');
   final shouldShowEmailError = useState(false);
   final password = useState('');
   final userName = useState('');
+
+  final userRepository = ref.watch(userRepositoryProvider);
 
   void onChangedEmail(String text) {
     email.value = text;
@@ -30,6 +34,10 @@ RegisterUiModel useRegisterUiModel() {
     userName.value = text;
   }
 
+  void onClickedSignUp() {
+    userRepository.createUser(email.value, password.value, userName.value);
+  }
+
   return RegisterUiModel(
     email: email.value,
     password: password.value,
@@ -39,6 +47,7 @@ RegisterUiModel useRegisterUiModel() {
     onUnfocusedEmail: onUnfocusedEmail,
     onChangedPassword: onChangedPassword,
     onChangedUserName: onChangedUserName,
+    onClickedSignUp: onClickedSignUp,
   );
 }
 
@@ -55,6 +64,7 @@ class RegisterUiModel {
   final Function() onUnfocusedEmail;
   final Function(String) onChangedPassword;
   final Function(String) onChangedUserName;
+  final Function() onClickedSignUp;
 
   RegisterUiModel({
     required this.email,
@@ -65,5 +75,6 @@ class RegisterUiModel {
     required this.onUnfocusedEmail,
     required this.onChangedPassword,
     required this.onChangedUserName,
+    required this.onClickedSignUp,
   });
 }
