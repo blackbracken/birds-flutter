@@ -1,7 +1,15 @@
 {
   "@@locale": "ja",
   "app_name_upper_case": "BIRDS",
+
+  "next_label": "次へ",
+
   "welcome_register_button_label": "新規登録",
   "welcome_log_in_button_label": "ログイン",
-  "register_app_bar_label": "アカウント登録"
+
+  "register_app_bar_label": "アカウント登録",
+  "register_email_hint": "メールアドレス",
+  "register_password_hint": "パスワード",
+  "register_user_name_hint": "ユーザー名",
+  "register_email_invalid_error": "メールアドレスの形式が不正です"
 }
