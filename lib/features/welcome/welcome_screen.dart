@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_birds/components/birds_outlined_button_widget.dart';
 import 'package:flutter_birds/features/welcome/welcome_hook.dart';
+import 'package:flutter_birds/hooks/use_l10n.dart';
 import 'package:flutter_gen/gen_l10n/app_l10n.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -11,6 +12,7 @@ class WelcomeScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = useL10n();
     final uiModel = useWelcomeUiModel(ref);
 
     return Scaffold(
@@ -21,7 +23,7 @@ class WelcomeScreen extends HookConsumerWidget {
             children: [
               const SizedBox(height: 16),
               Text(
-                L10n.of(context)!.app_name_upper_case,
+                l10n.app_name_upper_case,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 36,
@@ -36,14 +38,14 @@ class WelcomeScreen extends HookConsumerWidget {
               SizedBox(
                   width: double.infinity,
                   child: BirdsRoundedButton(
-                      L10n.of(context)!.welcome_register_button_label,
+                      l10n.welcome_register_button_label,
                       BirdsRoundedButtonColor.primary,
                       uiModel.goRegister)),
               const SizedBox(height: 24),
               SizedBox(
                   width: double.infinity,
                   child: BirdsRoundedButton(
-                      L10n.of(context)!.welcome_log_in_button_label,
+                      l10n.welcome_log_in_button_label,
                       BirdsRoundedButtonColor.secondary,
                       () => null)),
               const SizedBox(height: 56),
