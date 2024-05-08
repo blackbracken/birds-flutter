@@ -1,4 +1,5 @@
 import 'package:flutter_birds/providers/RepositoryProvider.dart';
+import 'package:flutter_birds/util/scope_function.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -7,10 +8,12 @@ const String _emailValidationRegex =
     r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
 
 RegisterUiModel useRegisterUiModel(WidgetRef ref) {
+  final isLoading = useState(false);
   final email = useState('');
   final shouldShowEmailError = useState(false);
   final password = useState('');
   final userName = useState('');
+  final shownSnackBar = useState<RegisterSnackBar?>(null);
 
   final userRepository = ref.watch(userRepositoryProvider);
 
@@ -34,8 +37,30 @@ RegisterUiModel useRegisterUiModel(WidgetRef ref) {
     userName.value = text;
   }
 
-  void onClickedSignUp() {
-    userRepository.createUser(email.value, password.value, userName.value);
+  Future<void> onClickedSignUp() async {
+    try {
+      shownSnackBar.value = null;
+      isLoading.value = true;
+
+      final emailValue = email.value.takeIf(_isValidEmail);
+      final passwordValue = password.value;
+      if (emailValue == null) return;
+
+      final userNameValue =
+          userName.value.takeIf((text) => text.isNotEmpty) ?? "default";
+
+      (await userRepository.createUser(
+        emailValue,
+        passwordValue,
+        userNameValue,
+      ))
+          .onSuccess((value) => null)
+          .onFailure((exception) {
+        shownSnackBar.value = RegisterSnackBar.FailureRegister;
+      });
+    } finally {
+      isLoading.value = false;
+    }
   }
 
   return RegisterUiModel(
@@ -43,6 +68,7 @@ RegisterUiModel useRegisterUiModel(WidgetRef ref) {
     password: password.value,
     userName: userName.value,
     shouldShowEmailError: shouldShowEmailError.value,
+    shownSnackBar: shownSnackBar.value,
     onChangedEmail: onChangedEmail,
     onUnfocusedEmail: onUnfocusedEmail,
     onChangedPassword: onChangedPassword,
@@ -60,21 +86,27 @@ class RegisterUiModel {
   final String password;
   final String userName;
   final bool shouldShowEmailError;
-  final Function(String) onChangedEmail;
-  final Function() onUnfocusedEmail;
-  final Function(String) onChangedPassword;
-  final Function(String) onChangedUserName;
-  final Function() onClickedSignUp;
+  final RegisterSnackBar? shownSnackBar;
+  final void Function(String) onChangedEmail;
+  final void Function() onUnfocusedEmail;
+  final void Function(String) onChangedPassword;
+  final void Function(String) onChangedUserName;
+  final void Function() onClickedSignUp;
 
   RegisterUiModel({
     required this.email,
     required this.password,
     required this.userName,
     required this.shouldShowEmailError,
+    required this.shownSnackBar,
     required this.onChangedEmail,
     required this.onUnfocusedEmail,
     required this.onChangedPassword,
     required this.onChangedUserName,
     required this.onClickedSignUp,
   });
+}
+
+enum RegisterSnackBar {
+  FailureRegister,
 }
