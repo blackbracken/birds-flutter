@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_birds/exceptions/CreateUserException.dart';
+import 'package:flutter_birds/exceptions/create_user_exception.dart';
 
 import '../../util/functional/result.dart';
 
