@@ -1,11 +1,11 @@
-import 'package:flutter_birds/router.dart';
+import 'package:flutter_birds/router/router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 WelcomeUiModel useWelcomeUiModel(WidgetRef ref) {
   final router = ref.watch(routerProvider);
 
   void goRegister() {
-    router.pushNamed(registerRoute);
+    router.pushRoute(BirdsRoute.Register);
   }
 
   return WelcomeUiModel(goRegister: goRegister);

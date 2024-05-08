@@ -2,6 +2,7 @@ import 'package:flutter_birds/exceptions/create_user_exception.dart';
 import 'package:flutter_birds/features/register/register_ui_model.dart';
 import 'package:flutter_birds/hooks/use_l10n.dart';
 import 'package:flutter_birds/providers/repository_provider.dart';
+import 'package:flutter_birds/router/router.dart';
 import 'package:flutter_birds/util/scope_function.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,6 +16,9 @@ const String _passwordValidationRegex =
     r"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$";
 
 RegisterUiModel useRegisterUiModel(WidgetRef ref) {
+  final userRepository = ref.watch(userRepositoryProvider);
+  final router = ref.watch(routerProvider);
+
   final isLoading = useState(false);
   final email = useState('');
   final shouldShowEmailError = useState(false);
@@ -23,7 +27,6 @@ RegisterUiModel useRegisterUiModel(WidgetRef ref) {
   final userName = useState('');
   final shownSnackBar = useState<RegisterSnackBar?>(null);
 
-  final userRepository = ref.watch(userRepositoryProvider);
   final l10n = useL10n();
 
   void onChangedEmail(String text) {
@@ -71,7 +74,7 @@ RegisterUiModel useRegisterUiModel(WidgetRef ref) {
         passwordValue,
         userNameValue,
       ))
-          .onSuccess((value) => null)
+          .onSuccess((value) => router.clearAndGo(BirdsRoute.Timeline))
           .onFailure((exception) {
         shownSnackBar.value = switch (exception) {
           CreateUserEmailAlreadyExistsException() =>
