@@ -10,10 +10,13 @@ class RegisterUiModel with _$RegisterUiModel {
     required String password,
     required String userName,
     required bool shouldShowEmailError,
+    required bool shouldShowPasswordError,
+    required bool canRegister,
     required RegisterSnackBar? shownSnackBar,
     required void Function(String) onChangedEmail,
     required void Function() onUnfocusedEmail,
     required void Function(String) onChangedPassword,
+    required void Function() onUnfocusedPassword,
     required void Function(String) onChangedUserName,
     required void Function() onClickedSignUp,
   }) = _RegisterUiModel;

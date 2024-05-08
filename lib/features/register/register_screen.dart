@@ -58,22 +58,28 @@ class RegisterScreen extends HookConsumerWidget {
                         onChanged: uiModel.onChangedEmail,
                       ),
                       onFocusChange: (hasFocus) {
-                        if (!hasFocus) {
-                          uiModel.onUnfocusedEmail();
-                        }
+                        if (!hasFocus) uiModel.onUnfocusedEmail();
+                      },
+                    ),
+                    const SizedBox(height: 24),
+                    Focus(
+                      child: BirdsTextField(
+                        textInputAction: TextInputAction.next,
+                        hintText: l10n.register_password_hint,
+                        errorText: uiModel.shouldShowPasswordError
+                            ? l10n.register_password_invalid_error
+                            : null,
+                        readOnly: uiModel.isLoading,
+                        isPasswordField: true,
+                        onChanged: uiModel.onChangedPassword,
+                      ),
+                      onFocusChange: (hasFocus) {
+                        if (!hasFocus) uiModel.onUnfocusedPassword();
                       },
                     ),
                     const SizedBox(height: 24),
                     BirdsTextField(
                       textInputAction: TextInputAction.next,
-                      hintText: l10n.register_password_hint,
-                      readOnly: uiModel.isLoading,
-                      isPasswordField: true,
-                      onChanged: uiModel.onChangedPassword,
-                    ),
-                    const SizedBox(height: 24),
-                    BirdsTextField(
-                      textInputAction: TextInputAction.done,
                       hintText: l10n.register_user_name_hint,
                       readOnly: uiModel.isLoading,
                       onChanged: uiModel.onChangedUserName,
@@ -86,7 +92,7 @@ class RegisterScreen extends HookConsumerWidget {
                             child: BirdsRoundedButton(
                               text: l10n.next_label,
                               color: BirdsRoundedButtonColor.primary,
-                              isEnabled: !uiModel.isLoading,
+                              isEnabled: uiModel.canRegister,
                               onPressed: uiModel.onClickedSignUp,
                             ))),
                     const SizedBox(height: 40),

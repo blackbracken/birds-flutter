@@ -12,7 +12,8 @@
   "register_password_hint": "パスワード",
   "register_user_name_hint": "ユーザー名",
   "register_email_invalid_error": "メールアドレスの形式が不正です",
+  "register_password_invalid_error": "8文字以上で英大小文字と数字を各1文字以上含めてください",
   "register_already_registered_email_error": "既にそのメールアドレスで登録されています",
-  "register_something_happened_error": "既にそのメールアドレスで登録されています",
+  "register_something_happened_error": "アカウントの登録に失敗しました",
   "register_default_user_name": "ユーザー"
 }

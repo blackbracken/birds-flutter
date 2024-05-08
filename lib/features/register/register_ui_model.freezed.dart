@@ -21,12 +21,15 @@ mixin _$RegisterUiModel {
   String get password => throw _privateConstructorUsedError;
   String get userName => throw _privateConstructorUsedError;
   bool get shouldShowEmailError => throw _privateConstructorUsedError;
+  bool get shouldShowPasswordError => throw _privateConstructorUsedError;
+  bool get canRegister => throw _privateConstructorUsedError;
   RegisterSnackBar? get shownSnackBar => throw _privateConstructorUsedError;
   void Function(String) get onChangedEmail =>
       throw _privateConstructorUsedError;
   void Function() get onUnfocusedEmail => throw _privateConstructorUsedError;
   void Function(String) get onChangedPassword =>
       throw _privateConstructorUsedError;
+  void Function() get onUnfocusedPassword => throw _privateConstructorUsedError;
   void Function(String) get onChangedUserName =>
       throw _privateConstructorUsedError;
   void Function() get onClickedSignUp => throw _privateConstructorUsedError;
@@ -48,10 +51,13 @@ abstract class $RegisterUiModelCopyWith<$Res> {
       String password,
       String userName,
       bool shouldShowEmailError,
+      bool shouldShowPasswordError,
+      bool canRegister,
       RegisterSnackBar? shownSnackBar,
       void Function(String) onChangedEmail,
       void Function() onUnfocusedEmail,
       void Function(String) onChangedPassword,
+      void Function() onUnfocusedPassword,
       void Function(String) onChangedUserName,
       void Function() onClickedSignUp});
 }
@@ -74,10 +80,13 @@ class _$RegisterUiModelCopyWithImpl<$Res, $Val extends RegisterUiModel>
     Object? password = null,
     Object? userName = null,
     Object? shouldShowEmailError = null,
+    Object? shouldShowPasswordError = null,
+    Object? canRegister = null,
     Object? shownSnackBar = freezed,
     Object? onChangedEmail = null,
     Object? onUnfocusedEmail = null,
     Object? onChangedPassword = null,
+    Object? onUnfocusedPassword = null,
     Object? onChangedUserName = null,
     Object? onClickedSignUp = null,
   }) {
@@ -102,6 +111,14 @@ class _$RegisterUiModelCopyWithImpl<$Res, $Val extends RegisterUiModel>
           ? _value.shouldShowEmailError
           : shouldShowEmailError // ignore: cast_nullable_to_non_nullable
               as bool,
+      shouldShowPasswordError: null == shouldShowPasswordError
+          ? _value.shouldShowPasswordError
+          : shouldShowPasswordError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      canRegister: null == canRegister
+          ? _value.canRegister
+          : canRegister // ignore: cast_nullable_to_non_nullable
+              as bool,
       shownSnackBar: freezed == shownSnackBar
           ? _value.shownSnackBar
           : shownSnackBar // ignore: cast_nullable_to_non_nullable
@@ -118,6 +135,10 @@ class _$RegisterUiModelCopyWithImpl<$Res, $Val extends RegisterUiModel>
           ? _value.onChangedPassword
           : onChangedPassword // ignore: cast_nullable_to_non_nullable
               as void Function(String),
+      onUnfocusedPassword: null == onUnfocusedPassword
+          ? _value.onUnfocusedPassword
+          : onUnfocusedPassword // ignore: cast_nullable_to_non_nullable
+              as void Function(),
       onChangedUserName: null == onChangedUserName
           ? _value.onChangedUserName
           : onChangedUserName // ignore: cast_nullable_to_non_nullable
@@ -144,10 +165,13 @@ abstract class _$$RegisterUiModelImplCopyWith<$Res>
       String password,
       String userName,
       bool shouldShowEmailError,
+      bool shouldShowPasswordError,
+      bool canRegister,
       RegisterSnackBar? shownSnackBar,
       void Function(String) onChangedEmail,
       void Function() onUnfocusedEmail,
       void Function(String) onChangedPassword,
+      void Function() onUnfocusedPassword,
       void Function(String) onChangedUserName,
       void Function() onClickedSignUp});
 }
@@ -168,10 +192,13 @@ class __$$RegisterUiModelImplCopyWithImpl<$Res>
     Object? password = null,
     Object? userName = null,
     Object? shouldShowEmailError = null,
+    Object? shouldShowPasswordError = null,
+    Object? canRegister = null,
     Object? shownSnackBar = freezed,
     Object? onChangedEmail = null,
     Object? onUnfocusedEmail = null,
     Object? onChangedPassword = null,
+    Object? onUnfocusedPassword = null,
     Object? onChangedUserName = null,
     Object? onClickedSignUp = null,
   }) {
@@ -196,6 +223,14 @@ class __$$RegisterUiModelImplCopyWithImpl<$Res>
           ? _value.shouldShowEmailError
           : shouldShowEmailError // ignore: cast_nullable_to_non_nullable
               as bool,
+      shouldShowPasswordError: null == shouldShowPasswordError
+          ? _value.shouldShowPasswordError
+          : shouldShowPasswordError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      canRegister: null == canRegister
+          ? _value.canRegister
+          : canRegister // ignore: cast_nullable_to_non_nullable
+              as bool,
       shownSnackBar: freezed == shownSnackBar
           ? _value.shownSnackBar
           : shownSnackBar // ignore: cast_nullable_to_non_nullable
@@ -212,6 +247,10 @@ class __$$RegisterUiModelImplCopyWithImpl<$Res>
           ? _value.onChangedPassword
           : onChangedPassword // ignore: cast_nullable_to_non_nullable
               as void Function(String),
+      onUnfocusedPassword: null == onUnfocusedPassword
+          ? _value.onUnfocusedPassword
+          : onUnfocusedPassword // ignore: cast_nullable_to_non_nullable
+              as void Function(),
       onChangedUserName: null == onChangedUserName
           ? _value.onChangedUserName
           : onChangedUserName // ignore: cast_nullable_to_non_nullable
@@ -233,10 +272,13 @@ class _$RegisterUiModelImpl implements _RegisterUiModel {
       required this.password,
       required this.userName,
       required this.shouldShowEmailError,
+      required this.shouldShowPasswordError,
+      required this.canRegister,
       required this.shownSnackBar,
       required this.onChangedEmail,
       required this.onUnfocusedEmail,
       required this.onChangedPassword,
+      required this.onUnfocusedPassword,
       required this.onChangedUserName,
       required this.onClickedSignUp});
 
@@ -251,6 +293,10 @@ class _$RegisterUiModelImpl implements _RegisterUiModel {
   @override
   final bool shouldShowEmailError;
   @override
+  final bool shouldShowPasswordError;
+  @override
+  final bool canRegister;
+  @override
   final RegisterSnackBar? shownSnackBar;
   @override
   final void Function(String) onChangedEmail;
@@ -259,13 +305,15 @@ class _$RegisterUiModelImpl implements _RegisterUiModel {
   @override
   final void Function(String) onChangedPassword;
   @override
+  final void Function() onUnfocusedPassword;
+  @override
   final void Function(String) onChangedUserName;
   @override
   final void Function() onClickedSignUp;
 
   @override
   String toString() {
-    return 'RegisterUiModel(isLoading: $isLoading, email: $email, password: $password, userName: $userName, shouldShowEmailError: $shouldShowEmailError, shownSnackBar: $shownSnackBar, onChangedEmail: $onChangedEmail, onUnfocusedEmail: $onUnfocusedEmail, onChangedPassword: $onChangedPassword, onChangedUserName: $onChangedUserName, onClickedSignUp: $onClickedSignUp)';
+    return 'RegisterUiModel(isLoading: $isLoading, email: $email, password: $password, userName: $userName, shouldShowEmailError: $shouldShowEmailError, shouldShowPasswordError: $shouldShowPasswordError, canRegister: $canRegister, shownSnackBar: $shownSnackBar, onChangedEmail: $onChangedEmail, onUnfocusedEmail: $onUnfocusedEmail, onChangedPassword: $onChangedPassword, onUnfocusedPassword: $onUnfocusedPassword, onChangedUserName: $onChangedUserName, onClickedSignUp: $onClickedSignUp)';
   }
 
   @override
@@ -282,6 +330,11 @@ class _$RegisterUiModelImpl implements _RegisterUiModel {
                 other.userName == userName) &&
             (identical(other.shouldShowEmailError, shouldShowEmailError) ||
                 other.shouldShowEmailError == shouldShowEmailError) &&
+            (identical(
+                    other.shouldShowPasswordError, shouldShowPasswordError) ||
+                other.shouldShowPasswordError == shouldShowPasswordError) &&
+            (identical(other.canRegister, canRegister) ||
+                other.canRegister == canRegister) &&
             (identical(other.shownSnackBar, shownSnackBar) ||
                 other.shownSnackBar == shownSnackBar) &&
             (identical(other.onChangedEmail, onChangedEmail) ||
@@ -290,6 +343,8 @@ class _$RegisterUiModelImpl implements _RegisterUiModel {
                 other.onUnfocusedEmail == onUnfocusedEmail) &&
             (identical(other.onChangedPassword, onChangedPassword) ||
                 other.onChangedPassword == onChangedPassword) &&
+            (identical(other.onUnfocusedPassword, onUnfocusedPassword) ||
+                other.onUnfocusedPassword == onUnfocusedPassword) &&
             (identical(other.onChangedUserName, onChangedUserName) ||
                 other.onChangedUserName == onChangedUserName) &&
             (identical(other.onClickedSignUp, onClickedSignUp) ||
@@ -304,10 +359,13 @@ class _$RegisterUiModelImpl implements _RegisterUiModel {
       password,
       userName,
       shouldShowEmailError,
+      shouldShowPasswordError,
+      canRegister,
       shownSnackBar,
       onChangedEmail,
       onUnfocusedEmail,
       onChangedPassword,
+      onUnfocusedPassword,
       onChangedUserName,
       onClickedSignUp);
 
@@ -326,10 +384,13 @@ abstract class _RegisterUiModel implements RegisterUiModel {
       required final String password,
       required final String userName,
       required final bool shouldShowEmailError,
+      required final bool shouldShowPasswordError,
+      required final bool canRegister,
       required final RegisterSnackBar? shownSnackBar,
       required final void Function(String) onChangedEmail,
       required final void Function() onUnfocusedEmail,
       required final void Function(String) onChangedPassword,
+      required final void Function() onUnfocusedPassword,
       required final void Function(String) onChangedUserName,
       required final void Function() onClickedSignUp}) = _$RegisterUiModelImpl;
 
@@ -344,6 +405,10 @@ abstract class _RegisterUiModel implements RegisterUiModel {
   @override
   bool get shouldShowEmailError;
   @override
+  bool get shouldShowPasswordError;
+  @override
+  bool get canRegister;
+  @override
   RegisterSnackBar? get shownSnackBar;
   @override
   void Function(String) get onChangedEmail;
@@ -351,6 +416,8 @@ abstract class _RegisterUiModel implements RegisterUiModel {
   void Function() get onUnfocusedEmail;
   @override
   void Function(String) get onChangedPassword;
+  @override
+  void Function() get onUnfocusedPassword;
   @override
   void Function(String) get onChangedUserName;
   @override
