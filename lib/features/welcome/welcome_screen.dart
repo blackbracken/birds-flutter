@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_birds/components/birds_outlined_button_widget.dart';
 import 'package:flutter_birds/features/welcome/welcome_hook.dart';
 import 'package:flutter_birds/hooks/use_l10n.dart';
-import 'package:flutter_gen/gen_l10n/app_l10n.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import "../../gen/assets.gen.dart";
@@ -37,13 +36,17 @@ class WelcomeScreen extends HookConsumerWidget {
               Spacer(),
               SizedBox(
                   width: double.infinity,
-                  child: BirdsRoundedButton(l10n.welcome_register_button_label,
-                      BirdsRoundedButtonColor.primary, uiModel.goRegister)),
+                  child: BirdsRoundedButton(
+                      text: l10n.welcome_register_button_label,
+                      color: BirdsRoundedButtonColor.primary,
+                      onPressed: uiModel.goRegister)),
               const SizedBox(height: 24),
               SizedBox(
                   width: double.infinity,
-                  child: BirdsRoundedButton(l10n.welcome_log_in_button_label,
-                      BirdsRoundedButtonColor.secondary, () => null)),
+                  child: BirdsRoundedButton(
+                      text: l10n.welcome_log_in_button_label,
+                      color: BirdsRoundedButtonColor.secondary,
+                      onPressed: () => null)),
               const SizedBox(height: 56),
             ],
           ),

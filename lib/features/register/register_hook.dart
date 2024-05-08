@@ -1,3 +1,4 @@
+import 'package:flutter_birds/features/register/register_ui_model.dart';
 import 'package:flutter_birds/providers/repository_provider.dart';
 import 'package:flutter_birds/util/scope_function.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -64,6 +65,7 @@ RegisterUiModel useRegisterUiModel(WidgetRef ref) {
   }
 
   return RegisterUiModel(
+    isLoading: isLoading.value,
     email: email.value,
     password: password.value,
     userName: userName.value,
@@ -79,34 +81,4 @@ RegisterUiModel useRegisterUiModel(WidgetRef ref) {
 
 bool _isValidEmail(String email) {
   return RegExp(_emailValidationRegex).hasMatch(email);
-}
-
-class RegisterUiModel {
-  final String email;
-  final String password;
-  final String userName;
-  final bool shouldShowEmailError;
-  final RegisterSnackBar? shownSnackBar;
-  final void Function(String) onChangedEmail;
-  final void Function() onUnfocusedEmail;
-  final void Function(String) onChangedPassword;
-  final void Function(String) onChangedUserName;
-  final void Function() onClickedSignUp;
-
-  RegisterUiModel({
-    required this.email,
-    required this.password,
-    required this.userName,
-    required this.shouldShowEmailError,
-    required this.shownSnackBar,
-    required this.onChangedEmail,
-    required this.onUnfocusedEmail,
-    required this.onChangedPassword,
-    required this.onChangedUserName,
-    required this.onClickedSignUp,
-  });
-}
-
-enum RegisterSnackBar {
-  FailureRegister,
 }

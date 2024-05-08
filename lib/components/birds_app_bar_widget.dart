@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_birds/hooks/use_theme.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
-class BirdsAppBar extends StatelessWidget implements PreferredSizeWidget {
+class BirdsAppBar extends HookWidget implements PreferredSizeWidget {
   const BirdsAppBar({
     required this.title,
     super.key,
@@ -10,17 +12,17 @@ class BirdsAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final theme = useTheme();
 
     return AppBar(
-      backgroundColor: colorScheme.primary,
+      backgroundColor: theme.colorScheme.primary,
       iconTheme: IconThemeData(
-        color: colorScheme.onPrimary,
+        color: theme.colorScheme.onPrimary,
       ),
       title: Text(
         title,
         style: TextStyle(
-          color: colorScheme.onPrimary,
+          color: theme.colorScheme.onPrimary,
         ),
       ),
     );

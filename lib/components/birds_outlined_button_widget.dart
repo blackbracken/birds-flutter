@@ -1,38 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_birds/hooks/use_theme.dart';
+import 'package:flutter_birds/util/ext/color_ext.dart';
+import 'package:flutter_birds/util/scope_function.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 enum BirdsRoundedButtonColor {
   primary,
   secondary,
 }
 
-class BirdsRoundedButton extends StatelessWidget {
-  BirdsRoundedButton(this.text, this.color, this.onPressed);
+class BirdsRoundedButton extends HookWidget {
+  BirdsRoundedButton({
+    required this.text,
+    required this.color,
+    this.isEnabled = true,
+    this.onPressed = null,
+  });
 
   final String text;
   final BirdsRoundedButtonColor color;
-  final Function()? onPressed;
+  final bool isEnabled;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
+    final theme = useTheme();
+
     return Container(
         constraints: BoxConstraints(minHeight: 48),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: switch (color) {
-              BirdsRoundedButtonColor.primary =>
-                Theme.of(context).colorScheme.primary,
-              BirdsRoundedButtonColor.secondary =>
-                Theme.of(context).colorScheme.secondary,
-            },
-            foregroundColor: Colors.white,
-            elevation: 0,
-          ),
-          onPressed: () {
-            HapticFeedback.mediumImpact();
-            onPressed?.call();
-          },
-          child: Text(text),
-        ));
+        child: AbsorbPointer(
+            absorbing: !isEnabled,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: switch (color) {
+                  BirdsRoundedButtonColor.primary => theme.colorScheme.primary,
+                  BirdsRoundedButtonColor.secondary =>
+                    theme.colorScheme.secondary,
+                }
+                    .let((color) => isEnabled ? color : color.disabled()),
+                foregroundColor: theme.colorScheme.onPrimary,
+                elevation: 0,
+              ),
+              onPressed: () {
+                HapticFeedback.mediumImpact();
+                onPressed?.call();
+              },
+              child: Text(text),
+            )));
   }
 }

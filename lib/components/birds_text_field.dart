@@ -9,6 +9,7 @@ class BirdsTextField extends HookConsumerWidget {
     this.autofocus = false,
     this.textInputAction,
     this.errorText,
+    this.readOnly = false,
     this.isPasswordField = false,
     this.onChanged,
     this.onEditingComplete,
@@ -20,6 +21,7 @@ class BirdsTextField extends HookConsumerWidget {
   final bool autofocus;
   final TextInputAction? textInputAction;
   final String? errorText;
+  final bool readOnly;
   final bool isPasswordField;
   final Function(String)? onChanged;
   final Function()? onEditingComplete;
@@ -32,6 +34,7 @@ class BirdsTextField extends HookConsumerWidget {
       autofocus: autofocus,
       textInputAction: textInputAction,
       obscureText: isPasswordField && !showPassword.value,
+      readOnly: readOnly,
       decoration: InputDecoration(
         labelText: labelText,
         hintText: hintText,
