@@ -25,6 +25,7 @@ dependencies:
   riverpod_annotation: ^2.3.5
 
   # flutter_hooks
+  flutter_hooks: ^0.20.5
   hooks_riverpod: ^2.5.1
 
   # firebase
