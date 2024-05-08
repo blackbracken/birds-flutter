@@ -11,5 +11,8 @@
   "register_email_hint": "メールアドレス",
   "register_password_hint": "パスワード",
   "register_user_name_hint": "ユーザー名",
-  "register_email_invalid_error": "メールアドレスの形式が不正です"
+  "register_email_invalid_error": "メールアドレスの形式が不正です",
+  "register_already_registered_email_error": "既にそのメールアドレスで登録されています",
+  "register_something_happened_error": "既にそのメールアドレスで登録されています",
+  "register_default_user_name": "ユーザー"
 }

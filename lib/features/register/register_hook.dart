@@ -1,5 +1,6 @@
 import 'package:flutter_birds/exceptions/create_user_exception.dart';
 import 'package:flutter_birds/features/register/register_ui_model.dart';
+import 'package:flutter_birds/hooks/use_l10n.dart';
 import 'package:flutter_birds/providers/repository_provider.dart';
 import 'package:flutter_birds/util/scope_function.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -18,6 +19,7 @@ RegisterUiModel useRegisterUiModel(WidgetRef ref) {
   final shownSnackBar = useState<RegisterSnackBar?>(null);
 
   final userRepository = ref.watch(userRepositoryProvider);
+  final l10n = useL10n();
 
   void onChangedEmail(String text) {
     email.value = text;
@@ -48,8 +50,8 @@ RegisterUiModel useRegisterUiModel(WidgetRef ref) {
       final passwordValue = password.value;
       if (emailValue == null) return;
 
-      final userNameValue =
-          userName.value.takeIf((text) => text.isNotEmpty) ?? "default";
+      final userNameValue = userName.value.takeIf((text) => text.isNotEmpty) ??
+          l10n.register_default_user_name;
 
       (await userRepository.createUser(
         emailValue,

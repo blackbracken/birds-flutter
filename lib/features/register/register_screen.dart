@@ -18,14 +18,17 @@ class RegisterScreen extends HookConsumerWidget {
     final l10n = useL10n();
 
     useEffect(() {
-      final snackBar = switch (uiModel.shownSnackBar) {
-        RegisterSnackBar.AlreadyUserExists => BirdsSnackBar("既にそのメールアドレスで登録されています"),
-        RegisterSnackBar.SomethingHappened => BirdsSnackBar("アカウントの作成に失敗しました"),
+      final snackBarText = switch (uiModel.shownSnackBar) {
+        RegisterSnackBar.AlreadyUserExists =>
+          l10n.register_already_registered_email_error,
+        RegisterSnackBar.SomethingHappened =>
+          l10n.register_something_happened_error,
         null => null,
       };
-      if (snackBar != null) {
+      if (snackBarText != null) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          ScaffoldMessenger.of(context)
+              .showSnackBar(BirdsSnackBar(snackBarText));
         });
       }
       return null;
