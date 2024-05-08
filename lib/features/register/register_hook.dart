@@ -1,3 +1,4 @@
+import 'package:flutter_birds/exceptions/create_user_exception.dart';
 import 'package:flutter_birds/features/register/register_ui_model.dart';
 import 'package:flutter_birds/providers/repository_provider.dart';
 import 'package:flutter_birds/util/scope_function.dart';
@@ -57,7 +58,11 @@ RegisterUiModel useRegisterUiModel(WidgetRef ref) {
       ))
           .onSuccess((value) => null)
           .onFailure((exception) {
-        shownSnackBar.value = RegisterSnackBar.FailureRegister;
+        shownSnackBar.value = switch (exception) {
+          CreateUserEmailAlreadyExistsException() =>
+            RegisterSnackBar.AlreadyUserExists,
+          _ => RegisterSnackBar.SomethingHappened,
+        };
       });
     } finally {
       isLoading.value = false;

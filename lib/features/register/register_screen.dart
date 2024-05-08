@@ -19,7 +19,8 @@ class RegisterScreen extends HookConsumerWidget {
 
     useEffect(() {
       final snackBar = switch (uiModel.shownSnackBar) {
-        RegisterSnackBar.FailureRegister => BirdsSnackBar("アカウントの作成に失敗しました"),
+        RegisterSnackBar.AlreadyUserExists => BirdsSnackBar("既にそのメールアドレスで登録されています"),
+        RegisterSnackBar.SomethingHappened => BirdsSnackBar("アカウントの作成に失敗しました"),
         null => null,
       };
       if (snackBar != null) {
