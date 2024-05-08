@@ -37,17 +37,13 @@ class WelcomeScreen extends HookConsumerWidget {
               Spacer(),
               SizedBox(
                   width: double.infinity,
-                  child: BirdsRoundedButton(
-                      l10n.welcome_register_button_label,
-                      BirdsRoundedButtonColor.primary,
-                      uiModel.goRegister)),
+                  child: BirdsRoundedButton(l10n.welcome_register_button_label,
+                      BirdsRoundedButtonColor.primary, uiModel.goRegister)),
               const SizedBox(height: 24),
               SizedBox(
                   width: double.infinity,
-                  child: BirdsRoundedButton(
-                      l10n.welcome_log_in_button_label,
-                      BirdsRoundedButtonColor.secondary,
-                      () => null)),
+                  child: BirdsRoundedButton(l10n.welcome_log_in_button_label,
+                      BirdsRoundedButtonColor.secondary, () => null)),
               const SizedBox(height: 56),
             ],
           ),
