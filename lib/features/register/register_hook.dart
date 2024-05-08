@@ -1,4 +1,4 @@
-import 'package:flutter_birds/providers/RepositoryProvider.dart';
+import 'package:flutter_birds/providers/repository_provider.dart';
 import 'package:flutter_birds/util/scope_function.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

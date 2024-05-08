@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_birds/exceptions/CreateUserException.dart';
 
-import '../../util/functional/Result.dart';
+import '../../util/functional/result.dart';
 
 class UserRepository {
   UserRepository(this._firebaseAuth);
