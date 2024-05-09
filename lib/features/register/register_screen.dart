@@ -12,6 +12,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../components/with_loading.dart';
 
 class RegisterScreen extends HookConsumerWidget {
+  const RegisterScreen({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final uiModel = useRegisterUiModel(ref);
@@ -41,11 +43,11 @@ class RegisterScreen extends HookConsumerWidget {
         body: WithLoading(
             isLoading: uiModel.isLoading,
             child: Padding(
-              padding: EdgeInsets.only(left: 32, right: 32),
+              padding: const EdgeInsets.only(left: 32, right: 32),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Spacer(),
+                    const Spacer(),
                     Focus(
                       child: BirdsTextField(
                         autofocus: true,
@@ -84,11 +86,11 @@ class RegisterScreen extends HookConsumerWidget {
                       readOnly: uiModel.isLoading,
                       onChanged: uiModel.onChangedUserName,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Align(
                         alignment: Alignment.bottomRight,
                         child: Container(
-                            constraints: BoxConstraints(minWidth: 120),
+                            constraints: const BoxConstraints(minWidth: 120),
                             child: BirdsRoundedButton(
                               text: l10n.next_label,
                               color: BirdsRoundedButtonColor.primary,

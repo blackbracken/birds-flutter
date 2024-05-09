@@ -11,7 +11,7 @@ sealed class ResultStrictly<T, E extends Exception> {
   ResultStrictly<U, E> map<U>(U Function(T) mapping) => switch (this) {
         Success(value: final v) => Success(mapping.call(v)),
         Failure() => this,
-        _ => throw UnimplementedError("Never supported dynamic types"),
+        _ => throw UnimplementedError('Never supported dynamic types'),
       } as ResultStrictly<U, E>;
 
   T? getOrNull();

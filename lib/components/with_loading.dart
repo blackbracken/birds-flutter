@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_birds/util/scope_function.dart';
 
 class WithLoading extends StatelessWidget {
-  WithLoading({required this.isLoading, required this.child});
+  const WithLoading({super.key, required this.isLoading, required this.child});
 
   final bool isLoading;
   final Widget child;
@@ -13,7 +13,7 @@ class WithLoading extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        SizedBox(
+        const SizedBox(
           width: 48,
           height: 48,
           child: CircularProgressIndicator(),

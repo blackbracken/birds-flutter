@@ -38,7 +38,7 @@ class BirdsTextField extends HookConsumerWidget {
       decoration: InputDecoration(
         labelText: labelText,
         hintText: hintText,
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
         errorText: errorText,
         suffixIcon: switch (showPassword.value) {
           true when isPasswordField => IconButton(

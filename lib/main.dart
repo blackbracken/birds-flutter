@@ -19,7 +19,7 @@ class BirdsApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
 
-    final TextTheme textTheme = TextTheme();
+    const textTheme = TextTheme();
 
     return MaterialApp.router(
       routerDelegate: router.routerDelegate,
@@ -27,8 +27,8 @@ class BirdsApp extends ConsumerWidget {
       routeInformationProvider: router.routeInformationProvider,
       localizationsDelegates: L10n.localizationsDelegates,
       supportedLocales: L10n.supportedLocales,
-      theme: BirdsTheme(textTheme).light(),
-      darkTheme: BirdsTheme(textTheme).dark(),
+      theme: const BirdsTheme(textTheme).light(),
+      darkTheme: const BirdsTheme(textTheme).dark(),
     );
   }
 }

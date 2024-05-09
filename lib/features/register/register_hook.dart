@@ -13,7 +13,7 @@ const String _emailValidationRegex =
 
 // 8文字以上で大文字小文字数字がそれぞれ1文字以上
 const String _passwordValidationRegex =
-    r"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$";
+    r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$';
 
 RegisterUiModel useRegisterUiModel(WidgetRef ref) {
   final userRepository = ref.watch(userRepositoryProvider);

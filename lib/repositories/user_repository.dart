@@ -23,7 +23,7 @@ class UserRepository {
       return Result.success(null);
     } on FirebaseAuthException catch (e) {
       return Result.failure(switch (e.code) {
-        'email-already-in-use' => CreateUserEmailAlreadyExistsException(),
+        'email-already-in-use' => const CreateUserEmailAlreadyExistsException(),
         _ => CreateUserOtherwiseException(e),
       });
     }

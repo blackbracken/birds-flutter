@@ -26,11 +26,11 @@ final routerProvider = Provider((_) => GoRouter(
         GoRoute(
             name: BirdsRoute.Register.name,
             path: BirdsRoute.Register.path,
-            builder: (context, state) => RegisterScreen()),
+            builder: (context, state) => const RegisterScreen()),
         GoRoute(
             name: BirdsRoute.Timeline.name,
             path: BirdsRoute.Timeline.path,
-            builder: (context, state) => TimelineScreen()),
+            builder: (context, state) => const TimelineScreen()),
       ],
     ));
 
@@ -39,7 +39,9 @@ extension GoRouterExt on GoRouter {
 
   // cf. https://stackoverflow.com/a/76947617
   void clearAndGo(BirdsRoute route) {
-    while (canPop()) pop();
+    while (canPop()) {
+      pop();
+    }
 
     pushReplacement(route.path);
   }

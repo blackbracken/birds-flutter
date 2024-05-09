@@ -11,11 +11,12 @@ enum BirdsRoundedButtonColor {
 }
 
 class BirdsRoundedButton extends HookWidget {
-  BirdsRoundedButton({
+  const BirdsRoundedButton({
+    super.key,
     required this.text,
     required this.color,
     this.isEnabled = true,
-    this.onPressed = null,
+    this.onPressed,
   });
 
   final String text;
@@ -28,7 +29,7 @@ class BirdsRoundedButton extends HookWidget {
     final theme = useTheme();
 
     return Container(
-        constraints: BoxConstraints(minHeight: 48),
+        constraints: const BoxConstraints(minHeight: 48),
         child: AbsorbPointer(
             absorbing: !isEnabled,
             child: ElevatedButton(

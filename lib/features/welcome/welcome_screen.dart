@@ -4,7 +4,7 @@ import 'package:flutter_birds/features/welcome/welcome_hook.dart';
 import 'package:flutter_birds/hooks/use_l10n.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import "../../gen/assets.gen.dart";
+import '../../gen/assets.gen.dart';
 
 class WelcomeScreen extends HookConsumerWidget {
   const WelcomeScreen({super.key});
@@ -16,14 +16,14 @@ class WelcomeScreen extends HookConsumerWidget {
 
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(right: 32, left: 32),
+        padding: const EdgeInsets.only(right: 32, left: 32),
         child: SafeArea(
           child: Column(
             children: [
               const SizedBox(height: 16),
               Text(
                 l10n.app_name_upper_case,
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 36,
                 ),
@@ -33,7 +33,7 @@ class WelcomeScreen extends HookConsumerWidget {
                 borderRadius: BorderRadius.circular(32),
                 child: Assets.images.welcomeEyeCatching.image(),
               ),
-              Spacer(),
+              const Spacer(),
               SizedBox(
                   width: double.infinity,
                   child: BirdsRoundedButton(
@@ -46,7 +46,7 @@ class WelcomeScreen extends HookConsumerWidget {
                   child: BirdsRoundedButton(
                       text: l10n.welcome_log_in_button_label,
                       color: BirdsRoundedButtonColor.secondary,
-                      onPressed: () => null)),
+                      onPressed: () {})),
               const SizedBox(height: 56),
             ],
           ),
