@@ -23,8 +23,8 @@ class BirdsTextField extends HookConsumerWidget {
   final String? errorText;
   final bool readOnly;
   final bool isPasswordField;
-  final Function(String)? onChanged;
-  final Function()? onEditingComplete;
+  final void Function(String)? onChanged;
+  final void Function()? onEditingComplete;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
