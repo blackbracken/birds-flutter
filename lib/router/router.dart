@@ -19,7 +19,7 @@ enum BirdsRoute {
 
 final routerProvider = Provider((_) => GoRouter(
       debugLogDiagnostics: true,
-      initialLocation: BirdsRoute.Post.path,
+      initialLocation: BirdsRoute.Welcome.path,
       routes: [
         GoRoute(
             name: BirdsRoute.Welcome.name,
