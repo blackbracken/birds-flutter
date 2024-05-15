@@ -33,14 +33,7 @@ class UserRepository {
         followerIds: [],
         likedPostIds: [],
       );
-
       await _firestore.collection('users').doc(userId).set(user.toJson());
-
-      try {
-        await _auth.currentUser?.updateDisplayName(userName);
-      } on FirebaseException catch (_) {
-        // ユーザー名の更新は失敗してもignore
-      }
 
       return Result.success(null);
     } on FirebaseAuthException catch (e) {
