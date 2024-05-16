@@ -26,6 +26,7 @@ mixin _$BirdsUser {
   DateTime get createdAt => throw _privateConstructorUsedError;
   List<String> get followeeIds => throw _privateConstructorUsedError;
   List<String> get followerIds => throw _privateConstructorUsedError;
+  List<String> get createdPostIds => throw _privateConstructorUsedError;
   List<String> get likedPostIds => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,6 +47,7 @@ abstract class $BirdsUserCopyWith<$Res> {
       DateTime createdAt,
       List<String> followeeIds,
       List<String> followerIds,
+      List<String> createdPostIds,
       List<String> likedPostIds});
 }
 
@@ -68,6 +70,7 @@ class _$BirdsUserCopyWithImpl<$Res, $Val extends BirdsUser>
     Object? createdAt = null,
     Object? followeeIds = null,
     Object? followerIds = null,
+    Object? createdPostIds = null,
     Object? likedPostIds = null,
   }) {
     return _then(_value.copyWith(
@@ -95,6 +98,10 @@ class _$BirdsUserCopyWithImpl<$Res, $Val extends BirdsUser>
           ? _value.followerIds
           : followerIds // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      createdPostIds: null == createdPostIds
+          ? _value.createdPostIds
+          : createdPostIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       likedPostIds: null == likedPostIds
           ? _value.likedPostIds
           : likedPostIds // ignore: cast_nullable_to_non_nullable
@@ -118,6 +125,7 @@ abstract class _$$BirdsUserImplCopyWith<$Res>
       DateTime createdAt,
       List<String> followeeIds,
       List<String> followerIds,
+      List<String> createdPostIds,
       List<String> likedPostIds});
 }
 
@@ -138,6 +146,7 @@ class __$$BirdsUserImplCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? followeeIds = null,
     Object? followerIds = null,
+    Object? createdPostIds = null,
     Object? likedPostIds = null,
   }) {
     return _then(_$BirdsUserImpl(
@@ -165,6 +174,10 @@ class __$$BirdsUserImplCopyWithImpl<$Res>
           ? _value._followerIds
           : followerIds // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      createdPostIds: null == createdPostIds
+          ? _value._createdPostIds
+          : createdPostIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       likedPostIds: null == likedPostIds
           ? _value._likedPostIds
           : likedPostIds // ignore: cast_nullable_to_non_nullable
@@ -183,9 +196,11 @@ class _$BirdsUserImpl with DiagnosticableTreeMixin implements _BirdsUser {
       required this.createdAt,
       required final List<String> followeeIds,
       required final List<String> followerIds,
+      required final List<String> createdPostIds,
       required final List<String> likedPostIds})
       : _followeeIds = followeeIds,
         _followerIds = followerIds,
+        _createdPostIds = createdPostIds,
         _likedPostIds = likedPostIds;
 
   factory _$BirdsUserImpl.fromJson(Map<String, dynamic> json) =>
@@ -215,6 +230,14 @@ class _$BirdsUserImpl with DiagnosticableTreeMixin implements _BirdsUser {
     return EqualUnmodifiableListView(_followerIds);
   }
 
+  final List<String> _createdPostIds;
+  @override
+  List<String> get createdPostIds {
+    if (_createdPostIds is EqualUnmodifiableListView) return _createdPostIds;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_createdPostIds);
+  }
+
   final List<String> _likedPostIds;
   @override
   List<String> get likedPostIds {
@@ -225,7 +248,7 @@ class _$BirdsUserImpl with DiagnosticableTreeMixin implements _BirdsUser {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'BirdsUser(userId: $userId, userName: $userName, imageUrl: $imageUrl, createdAt: $createdAt, followeeIds: $followeeIds, followerIds: $followerIds, likedPostIds: $likedPostIds)';
+    return 'BirdsUser(userId: $userId, userName: $userName, imageUrl: $imageUrl, createdAt: $createdAt, followeeIds: $followeeIds, followerIds: $followerIds, createdPostIds: $createdPostIds, likedPostIds: $likedPostIds)';
   }
 
   @override
@@ -239,6 +262,7 @@ class _$BirdsUserImpl with DiagnosticableTreeMixin implements _BirdsUser {
       ..add(DiagnosticsProperty('createdAt', createdAt))
       ..add(DiagnosticsProperty('followeeIds', followeeIds))
       ..add(DiagnosticsProperty('followerIds', followerIds))
+      ..add(DiagnosticsProperty('createdPostIds', createdPostIds))
       ..add(DiagnosticsProperty('likedPostIds', likedPostIds));
   }
 
@@ -259,6 +283,8 @@ class _$BirdsUserImpl with DiagnosticableTreeMixin implements _BirdsUser {
             const DeepCollectionEquality()
                 .equals(other._followerIds, _followerIds) &&
             const DeepCollectionEquality()
+                .equals(other._createdPostIds, _createdPostIds) &&
+            const DeepCollectionEquality()
                 .equals(other._likedPostIds, _likedPostIds));
   }
 
@@ -272,6 +298,7 @@ class _$BirdsUserImpl with DiagnosticableTreeMixin implements _BirdsUser {
       createdAt,
       const DeepCollectionEquality().hash(_followeeIds),
       const DeepCollectionEquality().hash(_followerIds),
+      const DeepCollectionEquality().hash(_createdPostIds),
       const DeepCollectionEquality().hash(_likedPostIds));
 
   @JsonKey(ignore: true)
@@ -296,6 +323,7 @@ abstract class _BirdsUser implements BirdsUser {
       required final DateTime createdAt,
       required final List<String> followeeIds,
       required final List<String> followerIds,
+      required final List<String> createdPostIds,
       required final List<String> likedPostIds}) = _$BirdsUserImpl;
 
   factory _BirdsUser.fromJson(Map<String, dynamic> json) =
@@ -313,6 +341,8 @@ abstract class _BirdsUser implements BirdsUser {
   List<String> get followeeIds;
   @override
   List<String> get followerIds;
+  @override
+  List<String> get createdPostIds;
   @override
   List<String> get likedPostIds;
   @override

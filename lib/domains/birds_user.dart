@@ -13,6 +13,7 @@ class BirdsUser with _$BirdsUser {
     required DateTime createdAt,
     required List<String> followeeIds,
     required List<String> followerIds,
+    required List<String> createdPostIds,
     required List<String> likedPostIds,
   }) = _BirdsUser;
 

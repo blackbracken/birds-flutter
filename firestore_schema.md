@@ -1,6 +1,6 @@
 # Firestore Schema
 
-クライアントの技術検証による簡単のため、自投稿以外のサブコレクションは持たずリレーショナルにしている
+クライアントの技術検証の簡単のため、サブコレクションは持たずリレーショナルにしている
 
 ## Users
 
@@ -15,11 +15,8 @@
 - `createdAt` (Timestamp): ユーザーが作成された日時(UTC+0)
 - `followeeIds` (Array): ユーザーがフォローしているユーザーの `userId` の配列
 - `followerIds` (Array): ユーザーをフォローしているユーザーの `userId` の配列
+- `createdPostIds` (Array): ユーザーが作成した投稿の `postId` の配列
 - `likedPostIds` (Array): ユーザーがいいねした投稿の `postId` の配列
-
-### Subcollections
-
-- **Posts**: ユーザーが作成した投稿のサブコレクション
 
 ## Posts
 

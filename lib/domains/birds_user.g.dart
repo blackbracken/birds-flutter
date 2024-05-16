@@ -18,6 +18,9 @@ _$BirdsUserImpl _$$BirdsUserImplFromJson(Map<String, dynamic> json) =>
       followerIds: (json['followerIds'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
+      createdPostIds: (json['createdPostIds'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
       likedPostIds: (json['likedPostIds'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
@@ -31,5 +34,6 @@ Map<String, dynamic> _$$BirdsUserImplToJson(_$BirdsUserImpl instance) =>
       'createdAt': instance.createdAt.toIso8601String(),
       'followeeIds': instance.followeeIds,
       'followerIds': instance.followerIds,
+      'createdPostIds': instance.createdPostIds,
       'likedPostIds': instance.likedPostIds,
     };
