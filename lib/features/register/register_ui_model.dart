@@ -23,6 +23,6 @@ class RegisterUiModel with _$RegisterUiModel {
 }
 
 enum RegisterSnackBar {
-  AlreadyUserExists,
-  SomethingHappened,
+  alreadyUserExists,
+  somethingHappened,
 }

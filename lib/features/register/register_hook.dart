@@ -74,12 +74,12 @@ RegisterUiModel useRegisterUiModel(WidgetRef ref) {
         passwordValue,
         userNameValue,
       ))
-          .onSuccess((value) => router.clearAndGo(BirdsRoute.Timeline))
+          .onSuccess((value) => router.clearAndGo(BirdsRoute.timeline))
           .onFailure((exception) {
         shownSnackBar.value = switch (exception) {
           CreateUserEmailAlreadyExistsException() =>
-            RegisterSnackBar.AlreadyUserExists,
-          _ => RegisterSnackBar.SomethingHappened,
+            RegisterSnackBar.alreadyUserExists,
+          _ => RegisterSnackBar.somethingHappened,
         };
       });
     } finally {

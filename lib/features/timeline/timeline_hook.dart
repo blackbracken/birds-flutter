@@ -7,7 +7,7 @@ TimelineUiModel useTimelineUiModel(WidgetRef ref) {
   final router = ref.watch(routerProvider);
 
   void onClickedPost() {
-    router.pushRoute(BirdsRoute.Post);
+    router.pushRoute(BirdsRoute.post);
   }
 
   return TimelineUiModel(

@@ -5,7 +5,7 @@ WelcomeUiModel useWelcomeUiModel(WidgetRef ref) {
   final router = ref.watch(routerProvider);
 
   void goRegister() {
-    router.pushRoute(BirdsRoute.Register);
+    router.pushRoute(BirdsRoute.register);
   }
 
   return WelcomeUiModel(goRegister: goRegister);

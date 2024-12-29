@@ -21,9 +21,9 @@ class RegisterScreen extends HookConsumerWidget {
 
     useEffect(() {
       final snackBarText = switch (uiModel.shownSnackBar) {
-        RegisterSnackBar.AlreadyUserExists =>
+        RegisterSnackBar.alreadyUserExists =>
           l10n.register_already_registered_email_error,
-        RegisterSnackBar.SomethingHappened =>
+        RegisterSnackBar.somethingHappened =>
           l10n.register_something_happened_error,
         null => null,
       };

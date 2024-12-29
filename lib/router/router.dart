@@ -6,10 +6,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 enum BirdsRoute {
-  Welcome(name: 'welcome', path: '/welcome'),
-  Register(name: 'register', path: '/register'),
-  Timeline(name: 'timeline', path: '/timeline'),
-  Post(name: 'post', path: '/post');
+  welcome(name: 'welcome', path: '/welcome'),
+  register(name: 'register', path: '/register'),
+  timeline(name: 'timeline', path: '/timeline'),
+  post(name: 'post', path: '/post');
 
   const BirdsRoute({required this.name, required this.path});
 
@@ -19,23 +19,23 @@ enum BirdsRoute {
 
 final routerProvider = Provider((_) => GoRouter(
       debugLogDiagnostics: true,
-      initialLocation: BirdsRoute.Welcome.path,
+      initialLocation: BirdsRoute.welcome.path,
       routes: [
         GoRoute(
-            name: BirdsRoute.Welcome.name,
-            path: BirdsRoute.Welcome.path,
+            name: BirdsRoute.welcome.name,
+            path: BirdsRoute.welcome.path,
             builder: (context, state) => const WelcomeScreen()),
         GoRoute(
-            name: BirdsRoute.Register.name,
-            path: BirdsRoute.Register.path,
+            name: BirdsRoute.register.name,
+            path: BirdsRoute.register.path,
             builder: (context, state) => const RegisterScreen()),
         GoRoute(
-            name: BirdsRoute.Timeline.name,
-            path: BirdsRoute.Timeline.path,
+            name: BirdsRoute.timeline.name,
+            path: BirdsRoute.timeline.path,
             builder: (context, state) => const TimelineScreen()),
         GoRoute(
-            name: BirdsRoute.Post.name,
-            path: BirdsRoute.Post.path,
+            name: BirdsRoute.post.name,
+            path: BirdsRoute.post.path,
             builder: (context, state) => const PostScreen()),
       ],
     ));
