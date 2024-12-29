@@ -1,16 +1,9 @@
 # flutter_birds
 
-A flutter project to tweet
+A flutter project to tweet :bird:
 
-## Getting Started
+## Set up for an iOS target
 
-This project is a starting point for a Flutter application.
+- Install CocoaPods and run `pod install` in the `ios` dir.
+- Download the `GoogleService-Info.plist` from Firebase and place it in the `./ios/Runner` dir.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
