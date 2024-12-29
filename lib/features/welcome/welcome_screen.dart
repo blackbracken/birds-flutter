@@ -29,9 +29,19 @@ class WelcomeScreen extends HookConsumerWidget {
                 ),
               ),
               const SizedBox(height: 32),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(32),
-                child: Assets.images.welcomeEyeCatching.image(),
+              DecoratedBox(
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(32)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0x54000000),
+                        blurRadius: 8,
+                      ),
+                    ]),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(32),
+                  child: Assets.images.welcomeEyeCatching.image(),
+                ),
               ),
               const Spacer(),
               SizedBox(
