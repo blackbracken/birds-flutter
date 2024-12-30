@@ -44,4 +44,14 @@ class UserRepository {
       });
     }
   }
+
+  Future<BirdsUser?> getUser() async {
+    final user = _auth.currentUser;
+    final userId = user?.uid;
+    if (userId == null) {
+      return null;
+    }
+
+    return _firestore.getUser(userId);
+  }
 }
