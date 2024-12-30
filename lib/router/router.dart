@@ -42,6 +42,7 @@ final routerProvider = Provider((_) => GoRouter(
 
 extension GoRouterExt on GoRouter {
   void pushRoute(BirdsRoute route) => pushNamed(route.name);
+  Future<void> replaceRoute(BirdsRoute route) => replaceNamed(route.name);
 
   // cf. https://stackoverflow.com/a/76947617
   void clearAndGo(BirdsRoute route) {
