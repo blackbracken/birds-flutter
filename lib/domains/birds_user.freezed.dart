@@ -24,10 +24,6 @@ mixin _$BirdsUser {
   String? get userName => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
-  List<String> get followeeIds => throw _privateConstructorUsedError;
-  List<String> get followerIds => throw _privateConstructorUsedError;
-  List<String> get createdPostIds => throw _privateConstructorUsedError;
-  List<String> get likedPostIds => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,14 +37,7 @@ abstract class $BirdsUserCopyWith<$Res> {
       _$BirdsUserCopyWithImpl<$Res, BirdsUser>;
   @useResult
   $Res call(
-      {String userId,
-      String? userName,
-      String? imageUrl,
-      DateTime createdAt,
-      List<String> followeeIds,
-      List<String> followerIds,
-      List<String> createdPostIds,
-      List<String> likedPostIds});
+      {String userId, String? userName, String? imageUrl, DateTime createdAt});
 }
 
 /// @nodoc
@@ -68,10 +57,6 @@ class _$BirdsUserCopyWithImpl<$Res, $Val extends BirdsUser>
     Object? userName = freezed,
     Object? imageUrl = freezed,
     Object? createdAt = null,
-    Object? followeeIds = null,
-    Object? followerIds = null,
-    Object? createdPostIds = null,
-    Object? likedPostIds = null,
   }) {
     return _then(_value.copyWith(
       userId: null == userId
@@ -90,22 +75,6 @@ class _$BirdsUserCopyWithImpl<$Res, $Val extends BirdsUser>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      followeeIds: null == followeeIds
-          ? _value.followeeIds
-          : followeeIds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      followerIds: null == followerIds
-          ? _value.followerIds
-          : followerIds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      createdPostIds: null == createdPostIds
-          ? _value.createdPostIds
-          : createdPostIds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      likedPostIds: null == likedPostIds
-          ? _value.likedPostIds
-          : likedPostIds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
     ) as $Val);
   }
 }
@@ -119,14 +88,7 @@ abstract class _$$BirdsUserImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String userId,
-      String? userName,
-      String? imageUrl,
-      DateTime createdAt,
-      List<String> followeeIds,
-      List<String> followerIds,
-      List<String> createdPostIds,
-      List<String> likedPostIds});
+      {String userId, String? userName, String? imageUrl, DateTime createdAt});
 }
 
 /// @nodoc
@@ -144,10 +106,6 @@ class __$$BirdsUserImplCopyWithImpl<$Res>
     Object? userName = freezed,
     Object? imageUrl = freezed,
     Object? createdAt = null,
-    Object? followeeIds = null,
-    Object? followerIds = null,
-    Object? createdPostIds = null,
-    Object? likedPostIds = null,
   }) {
     return _then(_$BirdsUserImpl(
       userId: null == userId
@@ -166,22 +124,6 @@ class __$$BirdsUserImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      followeeIds: null == followeeIds
-          ? _value._followeeIds
-          : followeeIds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      followerIds: null == followerIds
-          ? _value._followerIds
-          : followerIds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      createdPostIds: null == createdPostIds
-          ? _value._createdPostIds
-          : createdPostIds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      likedPostIds: null == likedPostIds
-          ? _value._likedPostIds
-          : likedPostIds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
     ));
   }
 }
@@ -193,15 +135,7 @@ class _$BirdsUserImpl with DiagnosticableTreeMixin implements _BirdsUser {
       {required this.userId,
       required this.userName,
       required this.imageUrl,
-      required this.createdAt,
-      required final List<String> followeeIds,
-      required final List<String> followerIds,
-      required final List<String> createdPostIds,
-      required final List<String> likedPostIds})
-      : _followeeIds = followeeIds,
-        _followerIds = followerIds,
-        _createdPostIds = createdPostIds,
-        _likedPostIds = likedPostIds;
+      required this.createdAt});
 
   factory _$BirdsUserImpl.fromJson(Map<String, dynamic> json) =>
       _$$BirdsUserImplFromJson(json);
@@ -214,41 +148,10 @@ class _$BirdsUserImpl with DiagnosticableTreeMixin implements _BirdsUser {
   final String? imageUrl;
   @override
   final DateTime createdAt;
-  final List<String> _followeeIds;
-  @override
-  List<String> get followeeIds {
-    if (_followeeIds is EqualUnmodifiableListView) return _followeeIds;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_followeeIds);
-  }
-
-  final List<String> _followerIds;
-  @override
-  List<String> get followerIds {
-    if (_followerIds is EqualUnmodifiableListView) return _followerIds;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_followerIds);
-  }
-
-  final List<String> _createdPostIds;
-  @override
-  List<String> get createdPostIds {
-    if (_createdPostIds is EqualUnmodifiableListView) return _createdPostIds;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_createdPostIds);
-  }
-
-  final List<String> _likedPostIds;
-  @override
-  List<String> get likedPostIds {
-    if (_likedPostIds is EqualUnmodifiableListView) return _likedPostIds;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_likedPostIds);
-  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'BirdsUser(userId: $userId, userName: $userName, imageUrl: $imageUrl, createdAt: $createdAt, followeeIds: $followeeIds, followerIds: $followerIds, createdPostIds: $createdPostIds, likedPostIds: $likedPostIds)';
+    return 'BirdsUser(userId: $userId, userName: $userName, imageUrl: $imageUrl, createdAt: $createdAt)';
   }
 
   @override
@@ -259,11 +162,7 @@ class _$BirdsUserImpl with DiagnosticableTreeMixin implements _BirdsUser {
       ..add(DiagnosticsProperty('userId', userId))
       ..add(DiagnosticsProperty('userName', userName))
       ..add(DiagnosticsProperty('imageUrl', imageUrl))
-      ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('followeeIds', followeeIds))
-      ..add(DiagnosticsProperty('followerIds', followerIds))
-      ..add(DiagnosticsProperty('createdPostIds', createdPostIds))
-      ..add(DiagnosticsProperty('likedPostIds', likedPostIds));
+      ..add(DiagnosticsProperty('createdAt', createdAt));
   }
 
   @override
@@ -277,29 +176,13 @@ class _$BirdsUserImpl with DiagnosticableTreeMixin implements _BirdsUser {
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            const DeepCollectionEquality()
-                .equals(other._followeeIds, _followeeIds) &&
-            const DeepCollectionEquality()
-                .equals(other._followerIds, _followerIds) &&
-            const DeepCollectionEquality()
-                .equals(other._createdPostIds, _createdPostIds) &&
-            const DeepCollectionEquality()
-                .equals(other._likedPostIds, _likedPostIds));
+                other.createdAt == createdAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      userId,
-      userName,
-      imageUrl,
-      createdAt,
-      const DeepCollectionEquality().hash(_followeeIds),
-      const DeepCollectionEquality().hash(_followerIds),
-      const DeepCollectionEquality().hash(_createdPostIds),
-      const DeepCollectionEquality().hash(_likedPostIds));
+  int get hashCode =>
+      Object.hash(runtimeType, userId, userName, imageUrl, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -320,11 +203,7 @@ abstract class _BirdsUser implements BirdsUser {
       {required final String userId,
       required final String? userName,
       required final String? imageUrl,
-      required final DateTime createdAt,
-      required final List<String> followeeIds,
-      required final List<String> followerIds,
-      required final List<String> createdPostIds,
-      required final List<String> likedPostIds}) = _$BirdsUserImpl;
+      required final DateTime createdAt}) = _$BirdsUserImpl;
 
   factory _BirdsUser.fromJson(Map<String, dynamic> json) =
       _$BirdsUserImpl.fromJson;
@@ -337,14 +216,6 @@ abstract class _BirdsUser implements BirdsUser {
   String? get imageUrl;
   @override
   DateTime get createdAt;
-  @override
-  List<String> get followeeIds;
-  @override
-  List<String> get followerIds;
-  @override
-  List<String> get createdPostIds;
-  @override
-  List<String> get likedPostIds;
   @override
   @JsonKey(ignore: true)
   _$$BirdsUserImplCopyWith<_$BirdsUserImpl> get copyWith =>

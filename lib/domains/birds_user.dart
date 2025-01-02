@@ -11,10 +11,6 @@ class BirdsUser with _$BirdsUser {
     required String? userName,
     required String? imageUrl,
     required DateTime createdAt,
-    required List<String> followeeIds,
-    required List<String> followerIds,
-    required List<String> createdPostIds,
-    required List<String> likedPostIds,
   }) = _BirdsUser;
 
   factory BirdsUser.fromJson(Map<String, dynamic> json) =>

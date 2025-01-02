@@ -29,10 +29,6 @@ class UserRepository {
         userName: userName,
         imageUrl: null,
         createdAt: _clock.nowUtc(),
-        followeeIds: [],
-        followerIds: [],
-        createdPostIds: [],
-        likedPostIds: [],
       ));
 
       return Result.success(null);
